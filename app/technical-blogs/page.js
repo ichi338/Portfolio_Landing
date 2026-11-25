@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { withBasePath } from "../site-path";
 
 const storageKey = "portfolio-technical-blogs";
 
@@ -20,7 +21,7 @@ export default function AllTechnicalBlogs() {
     <main className="wrap">
       <section>
         <nav className="entry-page-toolbar glass" aria-label="Page navigation">
-          <a className="entry-page-back" href="/"><span aria-hidden="true">←</span> Portfolio</a>
+          <a className="entry-page-back" href={withBasePath("/")}><span aria-hidden="true">←</span> Portfolio</a>
         </nav>
         <header className="entry-page-intro glass">
           <p className="hello">03.2 / Writing</p>

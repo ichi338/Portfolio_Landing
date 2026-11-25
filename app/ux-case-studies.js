@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { withBasePath } from "./site-path";
 
 const storageKey = "portfolio-ux-case-studies";
 
@@ -76,7 +77,7 @@ export default function UxCaseStudies({ editable = true }) {
             {studies.slice(0, 3).map((study, index) => (
               <article className="glass entry-preview-card" key={study.id}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={study.thumb || "/projects/barangaylink.svg"} alt={`${study.title} thumbnail`} />
+                <img src={withBasePath(study.thumb || "/projects/barangaylink.svg")} alt={`${study.title} thumbnail`} />
                 <div className="entry-preview-content">
                   <span>{String(index + 1).padStart(2, "0")} / {study.brand || "Studio name"}</span>
                   <h3>{study.title}</h3>
@@ -159,7 +160,7 @@ export default function UxCaseStudies({ editable = true }) {
                       <span>Work&nbsp;&nbsp; About</span>
                     </div>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="ux-preview-thumb" src={study.thumb || "/projects/barangaylink.svg"} alt={`${study.title} thumbnail`} />
+                    <img className="ux-preview-thumb" src={withBasePath(study.thumb || "/projects/barangaylink.svg")} alt={`${study.title} thumbnail`} />
                     <div className="ux-preview-hero">
                       <p>Selected work · 2025</p>
                       <h3>{study.headline || "Your project headline"}</h3>
@@ -181,7 +182,7 @@ export default function UxCaseStudies({ editable = true }) {
       )}
       {studies.length > 0 && (
         <div className="entry-preview-footer">
-          <a className="btn" href="/ux-case-studies">View all UX case studies <span aria-hidden="true">→</span></a>
+          <a className="btn" href={withBasePath("/ux-case-studies/")}>View all UX case studies <span aria-hidden="true">→</span></a>
         </div>
       )}
     </section>

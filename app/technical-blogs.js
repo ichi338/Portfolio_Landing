@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { withBasePath } from "./site-path";
 
 const storageKey = "portfolio-technical-blogs";
 
@@ -166,7 +167,7 @@ export default function TechnicalBlogs({ editable = true }) {
       )}
       {blogs.length > 0 && (
         <div className="entry-preview-footer">
-          <a className="btn" href="/technical-blogs">View all technical blogs <span aria-hidden="true">→</span></a>
+          <a className="btn" href={withBasePath("/technical-blogs/")}>View all technical blogs <span aria-hidden="true">→</span></a>
         </div>
       )}
     </section>

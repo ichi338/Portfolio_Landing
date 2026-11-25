@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { withBasePath } from "./site-path";
 
 const storageKey = "portfolio-projects";
 const designStorageKey = "portfolio-design-in-practice";
@@ -136,7 +137,7 @@ export default function ProjectsSection({ initialProjects, editable = true }) {
               <article className="glass project" key={project.id}>
                 <div className="thumb">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={project.thumb || "/projects/barangaylink.svg"} alt={`${project.name} thumbnail`} loading="lazy" />
+                  <img src={withBasePath(project.thumb || "/projects/barangaylink.svg")} alt={`${project.name} thumbnail`} loading="lazy" />
                 </div>
                 <div className="project-body">
                   <h3>
@@ -214,7 +215,7 @@ export default function ProjectsSection({ initialProjects, editable = true }) {
             {[...designImages, ...initialProjects, ...designImages, ...initialProjects].map((item, index) => (
               <article className="glass design-carousel-card" key={`${item.id}-${index}`} aria-hidden={index >= designImages.length + initialProjects.length}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.src || item.thumb || "/projects/barangaylink.svg"} alt={item.name || "Student organization graphic design sample"} loading="lazy" />
+                <img src={item.src || withBasePath(item.thumb || "/projects/barangaylink.svg")} alt={item.name || "Student organization graphic design sample"} loading="lazy" />
               </article>
             ))}
           </div>

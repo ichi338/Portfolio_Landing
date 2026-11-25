@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { withBasePath } from "../site-path";
 
 const storageKey = "portfolio-ux-case-studies";
 
@@ -20,7 +21,7 @@ export default function AllUxCaseStudies() {
     <main className="wrap">
       <section>
         <nav className="entry-page-toolbar glass" aria-label="Page navigation">
-          <a className="entry-page-back" href="/"><span aria-hidden="true">←</span> Portfolio</a>
+          <a className="entry-page-back" href={withBasePath("/")}><span aria-hidden="true">←</span> Portfolio</a>
         </nav>
         <header className="entry-page-intro glass">
           <p className="hello">03.1 / Design work</p>
@@ -35,7 +36,7 @@ export default function AllUxCaseStudies() {
             {studies.map((study, index) => (
               <article className="glass entry-page-card" id={study.id} key={study.id}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={study.thumb || "/projects/barangaylink.svg"} alt={`${study.title} thumbnail`} />
+                <img src={withBasePath(study.thumb || "/projects/barangaylink.svg")} alt={`${study.title} thumbnail`} />
                 <div className="entry-preview-content">
                   <span>{String(index + 1).padStart(2, "0")} / {study.brand || "Studio name"}</span>
                   <h2>{study.title}</h2>
